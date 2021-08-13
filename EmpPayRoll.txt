@@ -248,3 +248,60 @@ mysql> select count(*) from employee_payroll where gender = 'M' group by gender;
 |        3 |
 +----------+
 1 row in set (0.00 sec)
+
+UC8
+
+mysql> ALTER TABLE employee_payroll
+    -> ADD Mobile BIGINT,
+    -> ADD address VARCHAR(250) NOT NULL DEFAULT 'Bengaluru',
+    -> ADD Department VARCHAR(50)
+    -> ;
+Query OK, 0 rows affected (0.63 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE employee_payroll;
++------------+--------------+------+-----+-----------+----------------+
+| Field      | Type         | Null | Key | Default   | Extra          |
++------------+--------------+------+-----+-----------+----------------+
+| id         | int unsigned | NO   | PRI | NULL      | auto_increment |
+| name       | varchar(50)  | YES  |     | NULL      |                |
+| gender     | char(1)      | YES  |     | NULL      |                |
+| salary     | double       | NO   |     | NULL      |                |
+| start      | date         | NO   |     | NULL      |                |
+| Mobile     | bigint       | YES  |     | NULL      |                |
+| address    | varchar(250) | NO   |     | Bengaluru |                |
+| Department | varchar(50)  | YES  |     | NULL      |                |
++------------+--------------+------+-----+-----------+----------------+
+8 rows in set (0.01 sec)
+
+UC9
+
+mysql> ALTER TABLE employee_payroll
+    -> ADD Basic_pay FLOAT,
+    -> ADD Deductions FLOAT,
+    -> ADD Taxable_pay FLOAT,
+    -> ADD Income_tax FLOAT,
+    -> ADD Net_pay FLOAT
+    -> ;
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE employee_payroll;
++-------------+--------------+------+-----+-----------+----------------+
+| Field       | Type         | Null | Key | Default   | Extra          |
++-------------+--------------+------+-----+-----------+----------------+
+| id          | int unsigned | NO   | PRI | NULL      | auto_increment |
+| name        | varchar(50)  | YES  |     | NULL      |                |
+| gender      | char(1)      | YES  |     | NULL      |                |
+| salary      | double       | NO   |     | NULL      |                |
+| start       | date         | NO   |     | NULL      |                |
+| Mobile      | bigint       | YES  |     | NULL      |                |
+| address     | varchar(250) | NO   |     | Bengaluru |                |
+| Department  | varchar(50)  | YES  |     | NULL      |                |
+| Basic_pay   | float        | YES  |     | NULL      |                |
+| Deductions  | float        | YES  |     | NULL      |                |
+| Taxable_pay | float        | YES  |     | NULL      |                |
+| Income_tax  | float        | YES  |     | NULL      |                |
+| Net_pay     | float        | YES  |     | NULL      |                |
++-------------+--------------+------+-----+-----------+----------------+
+13 rows in set (0.00 sec)
